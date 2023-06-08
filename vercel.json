@@ -1,5 +1,6 @@
 {
     "version":2,
+    "framework":"node",
     "name":"youtube",
     "builds":[
         {
