@@ -15,6 +15,12 @@ app.use((req,res,next)=>{
     next()
     })
     app.use(cors({ origin: 'https://youtube-grouciyacine.vercel.app', credentials: true }));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://youtube-grouciyacine.vercel.app');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 app.use('/api/v1/auth',AuthRouter)
 app.use('/api/v1/videos',VideosRouter)
 app.use('/api/v1/users',UserRouter)
