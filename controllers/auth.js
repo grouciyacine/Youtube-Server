@@ -34,7 +34,7 @@ export const login=async(req,res,next)=>{
         const token=jwt.sign({id:user._id},process.env.JWT);
         const {password,...other}=user._doc;
     res.cookie('access_token', token, { secure: true, httpOnly: true });
-        res.status(200).json(other);
+        res.status(200).json({other,token});
     }
     }else{
         res.status(404).json('user not exist')
